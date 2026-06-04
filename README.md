@@ -34,6 +34,8 @@ $go mod tidy
 $go run .
 ```
 
+Access http://localhost:3000
+
 Testing with `go test`
 * Unit test
 * Integration test (with test container)
@@ -55,6 +57,8 @@ $cd backend/nestjs/login-api
 $npm install
 $npm run start
 ``` 
+Access http://localhost:3000
+
 
 Testing with `npm test` (unit tests)
 ```
