@@ -11,6 +11,7 @@ import (
 	"demo/internal/repository"
 
 	"github.com/gofiber/fiber/v3"
+	"github.com/gofiber/fiber/v3/middleware/cors"
 	_ "github.com/lib/pq"
 )
 
@@ -33,6 +34,9 @@ func main() {
 // NewApp wires the Fiber app with its routes and dependencies.
 func NewApp(db *sql.DB) *fiber.App {
 	app := fiber.New()
+
+	// Enable CORS for all origins in fiber v3. In production, you may want to restrict this to specific origins.
+	app.Use(cors.New())
 
 	repo := repository.NewPostgresUserRepository(db)
 	loginHandler := handler.NewLoginHandler(repo, getenv("JWT_SECRET", "dev-secret-change-me"))
