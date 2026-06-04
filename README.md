@@ -46,3 +46,5 @@ Testing with postman and [newman](https://www.npmjs.com/package/newman)
 $cd api-testing
 $newman run login-api.postman_collection.json
 ```
+
+## API testing with NestJS
