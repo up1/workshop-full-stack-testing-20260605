@@ -28,6 +28,15 @@ The login page will be designed to be simple and user-friendly. It will include 
 8. If the credentials are invalid, an error message is displayed indicating that the username or password is incorrect, and the user is prompted to try again.
 
 
+## Test cases in table format
+| Test Case ID | Description | Input | Expected Output |
+|--------------|-------------|-------|-----------------|
+| TC001 | Valid login | Username: user1, Password: validPassword | User is logged in and redirected to the dashboard/home page |
+| TC002 | Invalid login | Username: invalidUser, Password: invalidPassword | Error message: "Invalid username or password" is displayed |
+| TC003 | Missing username | Username: (empty), Password: validPassword | Error message: "Please enter your username" is displayed |
+| TC004 | Missing password | Username: validUser, Password: (empty) | Error message: "Please enter your password" is displayed |
+| TC005 | Missing both fields | Username: (empty), Password: (empty) | Error messages: "Please enter your username" and "Please enter your password" are displayed |
+
 ## API Endpoint and read more about API testing in [req_api.md](./backend/req_api.md)
 * POST http://localhost:3000/api/login
 ## Request Body
