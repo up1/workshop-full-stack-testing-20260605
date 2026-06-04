@@ -48,3 +48,32 @@ $newman run login-api.postman_collection.json
 ```
 
 ## API testing with NestJS
+
+Start Server
+```
+$cd backend/nestjs/login-api
+$npm install
+$npm run start
+``` 
+
+Testing with `npm test` (unit tests)
+```
+$npm test
+```
+
+Testing with `npm run test:e2e` (e2e tests)
+* Use Inmemory database for testing, no need to start the database container
+```
+$npm run test:e2e
+```
+
+Testing with Test container (with database)
+```
+$npx jest --config ./test/jest-e2e.json auth.container.e2e-spec.ts
+```
+
+Testing with postman and [newman](https://www.npmjs.com/package/newman)
+```
+$cd api-testing
+$newman run login-api.postman_collection.json
+```
