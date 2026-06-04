@@ -34,3 +34,15 @@ $go mod tidy
 $go run .
 ```
 
+Testing with `go test`
+* Unit test
+* Integration test (with test container)
+```
+$go test ./... -v
+```
+
+Testing with postman and [newman](https://www.npmjs.com/package/newman)
+```
+$cd api-testing
+$newman run login-api.postman_collection.json
+```

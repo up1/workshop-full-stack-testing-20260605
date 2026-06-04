@@ -1,0 +1,137 @@
+{
+  "info": {
+    "_postman_id": "54d84fc7-6dd2-48f3-aff6-84cede184ac0",
+    "name": "login-api",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "1453931",
+    "_collection_link": "https://go.postman.co/collection/1453931-54d84fc7-6dd2-48f3-aff6-84cede184ac0?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Login-success",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Login success :: Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Login success :: Response matches JSON schema\", function () {",
+              "    const schema = {",
+              "        type: \"object\",",
+              "        properties: {",
+              "            token: {",
+              "                type: \"string\",",
+              "                pattern: \"^[A-Za-z0-9-_]+\\\\.[A-Za-z0-9-_]+\\\\.[A-Za-z0-9-_]+$\"",
+              "            }",
+              "        },",
+              "        required: [\"token\"],",
+              "        additionalProperties: false",
+              "    };",
+              "    pm.response.to.have.jsonSchema(schema);",
+              "});",
+              "",
+              "pm.test(\"Login success :: Token is valid JWT format\", function () {",
+              "    const jsonData = pm.response.json();",
+              "    const jwtRegex = /^[A-Za-z0-9-_]+\\.[A-Za-z0-9-_]+\\.[A-Za-z0-9-_]+$/;",
+              "    pm.expect(jsonData.token).to.match(jwtRegex);",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"username\": \"user1\",\n    \"password\": \"validPassword\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "login"
+          ]
+        },
+        "description": "Generated from cURL: curl -s -o /dev/null -w \"%{http_code}\" -X POST http://localhost:3000/api/login -H \"Content-Type: application/json\" -d '{\"username\":\"validUser\",\"password\":\"validPassword\"}'"
+      },
+      "response": []
+    },
+    {
+      "name": "Login-failure",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Login failure :: Status code is 401\", function () {",
+              "    pm.response.to.have.status(401);",
+              "});",
+              "",
+              "pm.test(\"Login failure :: error message\", function () {",
+              "    const jsonData = pm.response.json();",
+              "    pm.expect(jsonData.error).to.eq(\"Invalid username or password\")",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"username\": \"user2\",\n    \"password\": \"invalidPassword\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "login"
+          ]
+        },
+        "description": "Generated from cURL: curl -s -o /dev/null -w \"%{http_code}\" -X POST http://localhost:3000/api/login -H \"Content-Type: application/json\" -d '{\"username\":\"validUser\",\"password\":\"validPassword\"}'"
+      },
+      "response": []
+    }
+  ]
+}

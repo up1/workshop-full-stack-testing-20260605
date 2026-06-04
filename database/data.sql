@@ -1,5 +1,3 @@
--- Iniitial data for users table (bcrypt hashes for 'password1', 'password2', 'password3')
+-- Iniitial data for users table (bcrypt hashes for 'validPassword')
 INSERT INTO users (username, password_hash) VALUES
-('user1', '$2b$12$KIXQJj5s8e5Z6z5u5v7Oe5s8e5Z6z5u5v7Oe5s8e5Z6z5u5v7Oe'),
-('user2', '$2b$12$KIXQJj5s8e5Z6z5u5v7Oe5s8e5Z6z5u5v7Oe5s8e5Z6z5u5v7Oe'),
-('user3', '$2b$12$KIXQJj5s8e5Z6z5u5v7Oe5s8e5Z6z5u5v7Oe5s8e5Z6z5u5v7Oe');
+('user1', '$2a$10$/B1SKIj588ly6eW.Gu2P4OXauw4CSS3gjJ8RNRZ4IsI4bXr5/4jwi');
