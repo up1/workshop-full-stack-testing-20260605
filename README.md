@@ -24,3 +24,13 @@ $docker compose exec db psql -U myuser -d mydatabase
 * `\c mydatabase` connect to database
 * `\dt` list tables
 * `SELECT * FROM users;` query data from users table
+
+## API testing with Go
+
+Start Server
+```
+$cd backend/go
+$go mod tidy
+$go run .
+```
+
