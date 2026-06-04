@@ -34,3 +34,8 @@ Develop a new Vue.js component that displays a list of items fetched from an API
 4. Style the component using Tailwind CSS to ensure a responsive and visually appealing design.
 5. Write unit tests for the `ItemList` component using Vue Test Utils and Jest to verify that it renders correctly based on the provided props.
 6. Write end-to-end tests with Playwright to ensure that the API integration works correctly and that the items are displayed as expected in the browser
+
+## Commands to run
+- To start the development server: `npm run dev`
+- To run unit tests: `npm test`
+- To run end-to-end tests: `npx playwright test`
