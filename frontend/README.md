@@ -12,3 +12,11 @@ $npm run dev
 
 Access http://localhost:5173/
 
+## Initial playwright test
+```
+$npm init playwright@latest
+$npx playwright install
+```
+
+Run tests with `npx playwright test` (or `npm test` if you add a script in `package.json`).
+
