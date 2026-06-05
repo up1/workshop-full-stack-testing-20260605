@@ -1,7 +1,10 @@
 # Workshop :: Full stack testing
 * Frontend
+  * Vuejs
+  * .NET Web 
 * Backend
-
+  * NestJS
+  * Go 
 
 ## Types of tests
 * External testing
