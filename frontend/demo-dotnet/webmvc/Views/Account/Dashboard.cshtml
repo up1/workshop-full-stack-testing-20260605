@@ -1,0 +1,13 @@
+@{
+    ViewData["Title"] = "Dashboard";
+    var username = ViewData["Username"] as string;
+}
+
+<div class="text-center" data-testid="dashboard">
+    <h1 class="display-4">Dashboard</h1>
+    <p data-testid="welcome-message">Welcome, @username! You are now logged in.</p>
+
+    <form asp-action="Logout" method="post" class="mt-3">
+        <button type="submit" class="btn btn-outline-secondary" data-testid="logout-button">Logout</button>
+    </form>
+</div>

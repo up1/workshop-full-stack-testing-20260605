@@ -26,7 +26,7 @@ export default defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
-    // baseURL: 'http://localhost:3000',
+    baseURL: 'http://localhost:5217',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
@@ -71,10 +71,16 @@ export default defineConfig({
     // },
   ],
 
-  /* Run your local dev server before starting the tests */
-  // webServer: {
-  //   command: 'npm run start',
-  //   url: 'http://localhost:3000',
-  //   reuseExistingServer: !process.env.CI,
-  // },
+  /* Run your local dev server before starting the tests.
+     Runs the MVC app in Development so it uses the deterministic FakeAuthService
+     (AuthApi:UseFake=true), making the e2e suite self-contained. */
+  webServer: {
+    command: 'dotnet run --project ../webmvc --urls http://localhost:5217',
+    url: 'http://localhost:5217',
+    reuseExistingServer: !process.env.CI,
+    timeout: 120_000,
+    env: {
+      ASPNETCORE_ENVIRONMENT: 'Development',
+    },
+  },
 });
