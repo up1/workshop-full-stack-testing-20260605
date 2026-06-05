@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="tests/tests.csproj" />
+  <Project Path="webmvc/webmvc.csproj" />
+</Solution>
